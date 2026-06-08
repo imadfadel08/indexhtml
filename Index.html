@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhotoGram</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#fafafa;
+}
+
+header{
+background:white;
+padding:15px;
+border-bottom:1px solid #ddd;
+position:sticky;
+top:0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+}
+
+.search{
+padding:8px;
+border:1px solid #ddd;
+border-radius:8px;
+}
+
+.feed{
+max-width:500px;
+margin:20px auto;
+}
+
+.post{
+background:white;
+border:1px solid #ddd;
+border-radius:12px;
+overflow:hidden;
+margin-bottom:20px;
+}
+
+.user{
+padding:12px;
+font-weight:bold;
+}
+
+.post img{
+width:100%;
+display:block;
+}
+
+.actions{
+padding:12px;
+}
+
+.like{
+cursor:pointer;
+font-size:24px;
+}
+
+.likes{
+margin-top:8px;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">PhotoGram</div>
+<input class="search" placeholder="بحث">
+</header>
+
+<div class="feed">
+
+<div class="post">
+<div class="user">Ahmed</div>
+<img src="https://picsum.photos/600/500?1">
+<div class="actions">
+<span class="like" onclick="like(this)">🤍</span>
+<div class="likes">0 إعجاب</div>
+</div>
+</div>
+
+<div class="post">
+<div class="user">Sara</div>
+<img src="https://picsum.photos/600/500?2">
+<div class="actions">
+<span class="like" onclick="like(this)">🤍</span>
+<div class="likes">0 إعجاب</div>
+</div>
+</div>
+
+</div>
+
+<script>
+function like(el){
+const likes = el.parentElement.querySelector(".likes");
+let n = parseInt(likes.textContent);
+
+if(el.textContent==="🤍"){
+el.textContent="❤️";
+likes.textContent=(n+1)+" إعجاب";
+}else{
+el.textContent="🤍";
+likes.textContent=(n-1)+" إعجاب";
+}
+}
+</script>
+
+</body>
+  </html>
